@@ -11,10 +11,12 @@ import CoreBluetooth
 import SigmaSwiftStatistics
 class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORScannerDelegate, UIPopoverPresentationControllerDelegate,NORLogger,UIWebViewDelegate{
     @IBOutlet weak var sensor1: UILabel!
-    
     @IBOutlet weak var backview3: UIView!
     @IBOutlet weak var backview2: UIView!
     @IBOutlet weak var backview1: UIView!
+    @IBOutlet weak var backview4: UIView!
+    @IBOutlet weak var backview5: UIView!
+    @IBOutlet weak var backview6: UIView!
     @IBOutlet weak var sensor3: UILabel!
     @IBOutlet weak var sensor2: UILabel!
     @IBOutlet weak var stillTime1: UILabel!
@@ -53,6 +55,9 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
     var webViewForSelectDate111: UIWebView!
     var webViewForSelectDate222: UIWebView!
     var webViewForSelectDate333: UIWebView!
+    var webViewForSelectDate444: UIWebView!
+    var webViewForSelectDate555: UIWebView!
+    var webViewForSelectDate666: UIWebView!
     //MARK: - View Actions
     @IBAction func connectionButtonTapped(_ sender: AnyObject) {
         bluetoothManager?.cancelPeripheralConnection()
@@ -264,6 +269,7 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
             self.view.addGestureRecognizer((revealViewController?.panGestureRecognizer())!)
             logger = revealViewController?.rearViewController as? NORLogViewController
         }
+        
         webViewForSelectDate111=UIWebView.init(frame:CGRect(x:0, y: 0, width: self.backview1.frame.size.width , height: self.backview1.frame.size.height) )
            webViewForSelectDate111!.backgroundColor=UIColor.red
         self.backview1.addSubview(webViewForSelectDate111)
@@ -275,7 +281,6 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
         
         webViewForSelectDate222=UIWebView.init(frame:CGRect(x:0, y:0, width: self.backview2.frame.size.width , height: self.backview2.frame.size.height) )
         webViewForSelectDate222!.backgroundColor=UIColor.red
-        //        webViewForSelectDate111.frame = CGRect(x:self.view.frame.size.width/3+10, y: 20, width: self.view.frame.size.width * 2/3-10, height: 200)
         self.backview2.addSubview(webViewForSelectDate222)
         let htmlPath222:NSString = Bundle.main.path(forResource: "source.bundle/index", ofType: "html")! as NSString
         let urlStr222 = URL(fileURLWithPath: htmlPath222 as String)
@@ -285,13 +290,39 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
         
         webViewForSelectDate333=UIWebView.init(frame:CGRect(x:0, y:0, width: self.backview3.frame.size.width , height: self.backview3.frame.size.height) )
         webViewForSelectDate333!.backgroundColor=UIColor.red
-        //        webViewForSelectDate111.frame = CGRect(x:self.view.frame.size.width/3+10, y: 20, width: self.view.frame.size.width * 2/3-10, height: 200)
         self.backview3.addSubview(webViewForSelectDate333)
         let htmlPath333:NSString = Bundle.main.path(forResource: "source.bundle/index", ofType: "html")! as NSString
         let urlStr333 = URL(fileURLWithPath: htmlPath333 as String)
         webViewForSelectDate333.loadRequest(URLRequest(url:urlStr333))
         webViewForSelectDate333!.scalesPageToFit = true;
         webViewForSelectDate333!.autoresizingMask = [.flexibleHeight ,.flexibleWidth]
+        
+        webViewForSelectDate444=UIWebView.init(frame:CGRect(x:0, y:0, width: self.backview4.frame.size.width , height: self.backview4.frame.size.height) )
+        webViewForSelectDate444!.backgroundColor=UIColor.red
+        self.backview4.addSubview(webViewForSelectDate444)
+        let htmlPath444:NSString = Bundle.main.path(forResource: "source.bundle/index", ofType: "html")! as NSString
+        let urlStr444 = URL(fileURLWithPath: htmlPath444 as String)
+        webViewForSelectDate444.loadRequest(URLRequest(url:urlStr444))
+        webViewForSelectDate444!.scalesPageToFit = true;
+        webViewForSelectDate444!.autoresizingMask = [.flexibleHeight ,.flexibleWidth]
+        
+        webViewForSelectDate555=UIWebView.init(frame:CGRect(x:0, y:0, width: self.backview5.frame.size.width , height: self.backview5.frame.size.height) )
+        webViewForSelectDate555!.backgroundColor=UIColor.red
+        self.backview5.addSubview(webViewForSelectDate555)
+        let htmlPath555:NSString = Bundle.main.path(forResource: "source.bundle/index", ofType: "html")! as NSString
+        let urlStr555 = URL(fileURLWithPath: htmlPath555 as String)
+        webViewForSelectDate555.loadRequest(URLRequest(url:urlStr555))
+        webViewForSelectDate555!.scalesPageToFit = true;
+        webViewForSelectDate555!.autoresizingMask = [.flexibleHeight ,.flexibleWidth]
+        
+        webViewForSelectDate666=UIWebView.init(frame:CGRect(x:0, y:0, width: self.backview6.frame.size.width , height: self.backview6.frame.size.height) )
+        webViewForSelectDate666!.backgroundColor=UIColor.red
+        self.backview6.addSubview(webViewForSelectDate666)
+        let htmlPath666:NSString = Bundle.main.path(forResource: "source.bundle/index", ofType: "html")! as NSString
+        let urlStr666 = URL(fileURLWithPath: htmlPath666 as String)
+        webViewForSelectDate666.loadRequest(URLRequest(url:urlStr666))
+        webViewForSelectDate666!.scalesPageToFit = true;
+        webViewForSelectDate666!.autoresizingMask = [.flexibleHeight ,.flexibleWidth]
         
         let still1 = Int(self.stillTime[0])
         let still2 = Int(self.stillTime[1])
@@ -305,9 +336,7 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
         self.alert1.text="\(alertnumber1)%"
         self.alert2.text="\(alertnumber2)%"
         self.alert3.text="\(alertnumber3)%"
-//        var recoredtimer11:Timer = Timer.scheduledTimer(timeInterval: 1,
-//                                                      target:self,selector:#selector(NORUARTViewController.updateData),
-//                                                      userInfo:nil,repeats:true)
+
     }
     
     //MARK: - Segue methods
@@ -325,6 +354,9 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
         let jsstr1  = (float[1] as! NSString).intValue
         let jsstr2 = (float[2] as! NSString).intValue
         let jsstr3  = (float[3] as! NSString).intValue
+        let jsstr4  = (float[4] as! NSString).intValue
+        let jsstr5 = (float[5] as! NSString).intValue
+        let jsstr6  = (float[6] as! NSString).intValue
         jsStr111.append("updateData(\(timeStamp),\(jsstr1))")
         print(jsStr111)
         let jsStr222:NSMutableString = ""
@@ -333,6 +365,15 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
         let jsStr333:NSMutableString = ""
         jsStr333.append("updateData(\(timeStamp),\(jsstr3))")
         print(jsStr333)
+        let jsStr444:NSMutableString = ""
+        jsStr444.append("updateData(\(timeStamp),\(jsstr4))")
+        print(jsStr444)
+        let jsStr555:NSMutableString = ""
+        jsStr555.append("updateData(\(timeStamp),\(jsstr5))")
+        print(jsStr555)
+        let jsStr666:NSMutableString = ""
+        jsStr666.append("updateData(\(timeStamp),\(jsstr6))")
+        print(jsStr666)
         
        
         for i in 0...2
@@ -372,6 +413,9 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
             self.webViewForSelectDate222.stringByEvaluatingJavaScript(from: jsStr222 as String)
             self.webViewForSelectDate333.stringByEvaluatingJavaScript(from: jsStr333 as String)
             self.webViewForSelectDate111.stringByEvaluatingJavaScript(from: jsStr111 as String)
+            self.webViewForSelectDate444.stringByEvaluatingJavaScript(from: jsStr444 as String)
+            self.webViewForSelectDate555.stringByEvaluatingJavaScript(from: jsStr555 as String)
+            self.webViewForSelectDate666.stringByEvaluatingJavaScript(from: jsStr666 as String)
             let still1 = Int(self.stillTime[0])
             let still2 = Int(self.stillTime[1])
             let still3 = Int(self.stillTime[2])

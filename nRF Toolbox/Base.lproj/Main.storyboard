@@ -543,6 +543,9 @@
                         <outlet property="backview1" destination="qcf-3k-ST8" id="AZJ-jb-JHd"/>
                         <outlet property="backview2" destination="IlN-F1-UHw" id="e5R-Xs-oKd"/>
                         <outlet property="backview3" destination="TeL-zD-H9p" id="Ozh-he-juh"/>
+                        <outlet property="backview4" destination="Wob-Xt-86T" id="yO2-vW-Gma"/>
+                        <outlet property="backview5" destination="hQQ-fw-gl7" id="ia9-Aq-R1o"/>
+                        <outlet property="backview6" destination="APU-gb-0Sx" id="BFO-Fz-Bda"/>
                         <outlet property="connectionButton" destination="TGd-qN-o6Z" id="CAs-Kj-bkE"/>
                         <outlet property="deviceName" destination="gXB-ef-ZAE" id="f5k-Im-TWQ"/>
                         <outlet property="record" destination="IQi-be-2Nc" id="3pw-Yw-7SM"/>
