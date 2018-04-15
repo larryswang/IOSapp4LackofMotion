@@ -10,7 +10,6 @@ import UIKit
 import CoreBluetooth
 import SigmaSwiftStatistics
 class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORScannerDelegate, UIPopoverPresentationControllerDelegate,NORLogger,UIWebViewDelegate{
-    @IBOutlet weak var sensor1: UILabel!
     @IBOutlet weak var backview3: UIView!
     @IBOutlet weak var backview2: UIView!
     @IBOutlet weak var backview1: UIView!
@@ -19,20 +18,20 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
     @IBOutlet weak var backview6: UIView!
     @IBOutlet weak var sensor3: UILabel!
     @IBOutlet weak var sensor2: UILabel!
+    @IBOutlet weak var sensor1: UILabel!
+    @IBOutlet weak var sensor6: UILabel!
+    @IBOutlet weak var sensor5: UILabel!
+    @IBOutlet weak var sensor4: UILabel!
     @IBOutlet weak var stillTime1: UILabel!
     @IBOutlet weak var stillTime2: UILabel!
     @IBOutlet weak var stillTime3: UILabel!
-    @IBOutlet weak var alert1: UILabel!
-    @IBOutlet weak var alert2: UILabel!
     @IBOutlet weak var record: UIButton!
-    @IBOutlet weak var alert3: UILabel!
+    @IBOutlet weak var posotion: UILabel!
+    @IBOutlet weak var allmotion: UILabel!
     var starrecord : Bool = false;
     var selectPeripheral: CBPeripheral!
-    var sensor_data = Array<Array<Float>>(repeating: Array<Float>(repeating: 0.0, count: 3), count: 3)
     var motion =  Array<Float>(repeating:0.0, count: 3)
-    var callAlert =  Array<Bool>(repeating:false, count: 3)
     var stillTime =  Array<Float>(repeating:0.0, count: 3)
-    var alert =  Array<Float>(repeating:0.0, count: 3)
     var getOff : Bool = false
     var HOUR :Float = 0.1
     var GET_OFF :Float = 90000
@@ -80,9 +79,7 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
             self.record.setTitle("RECORD", for:UIControlState.normal)
         }
         self.motion =  Array<Float>(repeating:0.0, count: 3)
-        self.callAlert =  Array<Bool>(repeating:false, count: 3)
         self.stillTime =  Array<Float>(repeating:0.0, count: 3)
-        self.alert =  Array<Float>(repeating:0.0, count: 3)
         self.getOff  = false
         self.HOUR  = 0.1
         self.GET_OFF  = 90000
@@ -94,15 +91,12 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
         self.stillTime1.text = "\(still1)"
         self.stillTime2.text = "\(still2)"
         self.stillTime3.text = "\(still3)"
-        let alertnumber1 = Int(self.alert[0] * 100)
-        let alertnumber2 = Int(self.alert[1] * 100)
-        let alertnumber3 = Int(self.alert[2] * 100)
-        self.alert1.text="\(alertnumber1)%"
-        self.alert2.text="\(alertnumber2)%"
-        self.alert3.text="\(alertnumber3)%"
         self.sensor1.text="0"
         self.sensor2.text="0"
         self.sensor3.text="0"
+        self.sensor4.text="0"
+        self.sensor5.text="0"
+        self.sensor6.text="0"
     }
     func reset() {
         self.bluetoothManager?.cancelPeripheralConnection()
@@ -112,9 +106,7 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
             self.record.setTitle("RECORD", for:UIControlState.normal)
         }
         self.motion =  Array<Float>(repeating:0.0, count: 3)
-        self.callAlert =  Array<Bool>(repeating:false, count: 3)
         self.stillTime =  Array<Float>(repeating:0.0, count: 3)
-        self.alert =  Array<Float>(repeating:0.0, count: 3)
         self.getOff  = false
         self.HOUR  = 0.1
         self.GET_OFF  = 90000
@@ -126,15 +118,12 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
         self.stillTime1.text = "\(still1)"
         self.stillTime2.text = "\(still2)"
         self.stillTime3.text = "\(still3)"
-        let alertnumber1 = Int(self.alert[0] * 100)
-        let alertnumber2 = Int(self.alert[1] * 100)
-        let alertnumber3 = Int(self.alert[2] * 100)
-        self.alert1.text="\(alertnumber1)%"
-        self.alert2.text="\(alertnumber2)%"
-        self.alert3.text="\(alertnumber3)%"
         self.sensor1.text="0"
         self.sensor2.text="0"
         self.sensor3.text="0"
+        self.sensor4.text="0"
+        self.sensor5.text="0"
+        self.sensor6.text="0"
     }
     
    
@@ -247,7 +236,8 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
         let outputFormatter = DateFormatter()
         outputFormatter.dateFormat = "HH:mm:ss.SSS"
         let timeString = outputFormatter.string(from: now)
-        let info  = "\(timeString)bluetoothdata \(String(describing: self.sensor1.text)) \(String(describing: self.sensor2.text)) \(String(describing: self.sensor3.text)) still time \(self.stillTime[0]) \(self.stillTime[1]) \(self.stillTime[2]) alert \(self.alert[0]) \(self.alert[1]) \(self.alert[2])\n "
+        //let info  = "\(timeString)bluetoothdata \(String(describing: self.sensor1.text)) \(String(describing: self.sensor2.text)) \(String(describing: self.sensor3.text)) still time \(self.stillTime[0]) \(self.stillTime[1]) \(self.stillTime[2]) alert \(self.alert[0]) \(self.alert[1]) \(self.alert[2])\n "
+        let info  = "\(timeString)bluetoothdata \(String(describing: self.sensor1.text)) \(String(describing: self.sensor2.text)) \(String(describing: self.sensor3.text)) \(String(describing: self.sensor4.text)) \(String(describing: self.sensor5.text)) \(String(describing: self.sensor6.text))\n "
         let manager = FileManager.default
         let urlsForDocDirectory = manager.urls(for:.documentDirectory, in:.userDomainMask)
         let docPath = urlsForDocDirectory[0]
@@ -330,12 +320,6 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
         self.stillTime1.text = "\(still1)"
         self.stillTime2.text = "\(still2)"
         self.stillTime3.text = "\(still3)"
-        let alertnumber1 = Int(self.alert[0] * 100)
-        let alertnumber2 = Int(self.alert[1] * 100)
-        let alertnumber3 = Int(self.alert[2] * 100)
-        self.alert1.text="\(alertnumber1)%"
-        self.alert2.text="\(alertnumber2)%"
-        self.alert3.text="\(alertnumber3)%"
 
     }
     
@@ -397,7 +381,7 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
                 self.stillTime[i] += 1
             }
             
-            if (self.stillTime[i] > 3600*self.HOUR)
+/*            if (self.stillTime[i] > 3600*self.HOUR)
             {
                 self.callAlert[i] = true;
             }
@@ -405,6 +389,7 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
             {
                 self.alert [i] = self.stillTime[i]/(3600*self.HOUR);
             }
+ */
         }
         if self.starrecord {
             self.ceshidemo()
@@ -422,15 +407,12 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
             self.stillTime1.text = "\(still1)"
             self.stillTime2.text = "\(still2)"
             self.stillTime3.text = "\(still3)"
-            let alertnumber1 = Int(self.alert[0] * 100)
-            let alertnumber2 = Int(self.alert[1] * 100)
-            let alertnumber3 = Int(self.alert[2] * 100)
-            self.alert1.text="\(alertnumber1)%"
-            self.alert2.text="\(alertnumber2)%"
-            self.alert3.text="\(alertnumber3)%"
             self.sensor1.text=float[1] as? String
             self.sensor2.text=float[2] as? String
             self.sensor3.text=float[3] as? String
+            self.sensor4.text=float[4] as? String
+            self.sensor5.text=float[5] as? String
+            self.sensor6.text=float[6] as? String
             self.motion[0]=(float[1] as! NSString).floatValue
             self.motion[1]=(float[2] as! NSString).floatValue
             self.motion[2]=(float[3] as! NSString).floatValue
@@ -442,10 +424,6 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
         
         let javascript : NSString  = "window.scrollBy(0,\(height))" as NSString
         webView.stringByEvaluatingJavaScript(from: "\(javascript)")
-        
-//        NSInteger height = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight;"] intValue];
-//        NSString* javascript = [NSString stringWithFormat:@"window.scrollBy(0, %d);", height];
-//        [webView stringByEvaluatingJavaScriptFromString:javascript];
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "scan" else {
