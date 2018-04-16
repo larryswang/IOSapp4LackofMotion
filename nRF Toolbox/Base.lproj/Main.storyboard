@@ -152,7 +152,7 @@
                                     <segue destination="BQP-B5-Tee" kind="presentation" identifier="scan" id="nX1-cs-GXT"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEFAULT UART" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXB-ef-ZAE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lack of Motion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXB-ef-ZAE">
                                 <rect key="frame" x="39" y="33" width="951" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="34p-wU-7dE"/>

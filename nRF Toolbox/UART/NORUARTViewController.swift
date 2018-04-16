@@ -134,13 +134,49 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
     @IBOutlet weak var connectionButton: UIButton!
     //MARK: -NORLogger Protocol
     func log(level aLevel: NORLOGLevel, message aMessage: String) {
-        print("ceshi\(aMessage)")
+        print("test\(aMessage)")
         if(aMessage.contains("#")){
-            let strArray2: [String] = aMessage.components(separatedBy:"#")
-            print("\(strArray2)")
+            var strArray = [" ", " ", " ", " ", " ", " "]
+            let start1 = aMessage.index(aMessage.startIndex, offsetBy: 1)
+            let end1 = aMessage.index(aMessage.startIndex, offsetBy: 4)
+            let range1 = start1..<end1
+            let mySubstring1 = aMessage[range1]  // play
+            strArray[0] = mySubstring1
+            
+            let start2 = aMessage.index(aMessage.startIndex, offsetBy: 4)
+            let end2 = aMessage.index(aMessage.startIndex, offsetBy: 7)
+            let range2 = start2..<end2
+            let mySubstring2 = aMessage[range2]  // play
+            strArray[1] = mySubstring2
+            
+            let start3 = aMessage.index(aMessage.startIndex, offsetBy: 7)
+            let end3 = aMessage.index(aMessage.startIndex, offsetBy: 10)
+            let range3 = start3..<end3
+            let mySubstring3 = aMessage[range3]  // play
+            strArray[2] = mySubstring3
+            
+            let start4 = aMessage.index(aMessage.startIndex, offsetBy: 10)
+            let end4 = aMessage.index(aMessage.startIndex, offsetBy: 13)
+            let range4 = start4..<end4
+            let mySubstring4 = aMessage[range4]  // play
+            strArray[3] = mySubstring4
+            
+            let start5 = aMessage.index(aMessage.startIndex, offsetBy: 13)
+            let end5 = aMessage.index(aMessage.startIndex, offsetBy: 16)
+            let range5 = start5..<end5
+            let mySubstring5 = aMessage[range5]  // play
+            strArray[4] = mySubstring5
+            
+            let start6 = aMessage.index(aMessage.startIndex, offsetBy: 16)
+            let end6 = aMessage.index(aMessage.startIndex, offsetBy: 19)
+            let range6 = start6..<end6
+            let mySubstring6 = aMessage[range6]  // play
+            strArray[5] = mySubstring6
+
+            print("\(strArray)")
       
 
-                self.updateData(float: strArray2)
+                self.updateData(float: strArray)
  
          
         }
@@ -335,12 +371,12 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
         let timeInterval:TimeInterval = now.timeIntervalSince1970
         let timeStamp = timeInterval * 1000
         let jsStr111:NSMutableString = ""
-        let jsstr1  = (float[1] as! NSString).intValue
-        let jsstr2 = (float[2] as! NSString).intValue
-        let jsstr3  = (float[3] as! NSString).intValue
-        let jsstr4  = (float[4] as! NSString).intValue
-        let jsstr5 = (float[5] as! NSString).intValue
-        let jsstr6  = (float[6] as! NSString).intValue
+        let jsstr1  = (float[0] as! NSString).intValue
+        let jsstr2 = (float[1] as! NSString).intValue
+        let jsstr3  = (float[2] as! NSString).intValue
+        let jsstr4  = (float[3] as! NSString).intValue
+        let jsstr5 = (float[4] as! NSString).intValue
+        let jsstr6  = (float[5] as! NSString).intValue
         jsStr111.append("updateData(\(timeStamp),\(jsstr1))")
         print(jsStr111)
         let jsStr222:NSMutableString = ""
@@ -407,12 +443,12 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
             self.stillTime1.text = "\(still1)"
             self.stillTime2.text = "\(still2)"
             self.stillTime3.text = "\(still3)"
-            self.sensor1.text=float[1] as? String
-            self.sensor2.text=float[2] as? String
-            self.sensor3.text=float[3] as? String
-            self.sensor4.text=float[4] as? String
-            self.sensor5.text=float[5] as? String
-            self.sensor6.text=float[6] as? String
+            self.sensor1.text=float[0] as? String
+            self.sensor2.text=float[1] as? String
+            self.sensor3.text=float[2] as? String
+            self.sensor4.text=float[3] as? String
+            self.sensor5.text=float[4] as? String
+            self.sensor6.text=float[5] as? String
             self.motion[0]=(float[1] as! NSString).floatValue
             self.motion[1]=(float[2] as! NSString).floatValue
             self.motion[2]=(float[3] as! NSString).floatValue
