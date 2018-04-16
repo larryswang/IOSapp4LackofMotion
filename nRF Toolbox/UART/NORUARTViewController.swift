@@ -272,7 +272,6 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
         let outputFormatter = DateFormatter()
         outputFormatter.dateFormat = "HH:mm:ss.SSS"
         let timeString = outputFormatter.string(from: now)
-        //let info  = "\(timeString)bluetoothdata \(String(describing: self.sensor1.text)) \(String(describing: self.sensor2.text)) \(String(describing: self.sensor3.text)) still time \(self.stillTime[0]) \(self.stillTime[1]) \(self.stillTime[2]) alert \(self.alert[0]) \(self.alert[1]) \(self.alert[2])\n "
         let info  = "\(timeString)bluetoothdata \(String(describing: self.sensor1.text)) \(String(describing: self.sensor2.text)) \(String(describing: self.sensor3.text)) \(String(describing: self.sensor4.text)) \(String(describing: self.sensor5.text)) \(String(describing: self.sensor6.text))\n "
         let manager = FileManager.default
         let urlsForDocDirectory = manager.urls(for:.documentDirectory, in:.userDomainMask)

@@ -39,9 +39,9 @@
             },
             yAxis: { //设置Y轴
                 title: '',
-                max: 100000, //Y轴最大值
+                max: 1000, //Y轴最大值
                 min: 0 , //Y轴最小值
-                minorTickInterval: 100000,//最小刻度
+                minorTickInterval: 100,//最小刻度
                tickPixelInterval:50//刻度间隔
 
             },
@@ -71,7 +71,7 @@
                          for (i = -19; i <= 0; i++) {
                          data.push({
                                    x: time + i * 5000, 
-                                   y: Math.random()*100000
+                                   y: Math.random()*1000
                                    });
                          }
                          return data;
