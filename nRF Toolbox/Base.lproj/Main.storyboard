@@ -684,6 +684,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="K1" destination="gfI-fU-Tn8" id="Ime-wd-PzF"/>
+                        <outlet property="K2" destination="Fg2-2C-07r" id="nlI-hh-pj7"/>
+                        <outlet property="K3" destination="N25-IA-EPH" id="jgX-Q7-NbU"/>
+                        <outlet property="K4" destination="Q4o-25-j1r" id="Rk0-0L-Hsx"/>
+                        <outlet property="K5" destination="DHM-bT-WJe" id="7gg-R0-Ql0"/>
+                        <outlet property="K6" destination="hQl-26-NRV" id="B8a-bH-uqf"/>
                         <outlet property="allmotion" destination="cod-Wh-KNf" id="eLP-Kb-C63"/>
                         <outlet property="backview1" destination="qcf-3k-ST8" id="AZJ-jb-JHd"/>
                         <outlet property="backview2" destination="IlN-F1-UHw" id="e5R-Xs-oKd"/>

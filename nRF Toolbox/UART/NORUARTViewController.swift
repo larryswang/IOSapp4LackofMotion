@@ -28,6 +28,12 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
     @IBOutlet weak var record: UIButton!
     @IBOutlet weak var posotion: UILabel!
     @IBOutlet weak var allmotion: UILabel!
+    @IBOutlet weak var K1: UITextField!
+    @IBOutlet weak var K2: UITextField!
+    @IBOutlet weak var K3: UITextField!
+    @IBOutlet weak var K4: UITextField!
+    @IBOutlet weak var K5: UITextField!
+    @IBOutlet weak var K6: UITextField!
     var starrecord : Bool = false;
     var selectPeripheral: CBPeripheral!
     var motion =  Array<Float>(repeating:0.0, count: 3)
