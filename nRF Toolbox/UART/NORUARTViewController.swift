@@ -9,7 +9,7 @@
 import UIKit
 import CoreBluetooth
 import SigmaSwiftStatistics
-class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORScannerDelegate, UIPopoverPresentationControllerDelegate,NORLogger,UIWebViewDelegate{
+class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORScannerDelegate,UITextFieldDelegate, UIPopoverPresentationControllerDelegate,NORLogger,UIWebViewDelegate{
     @IBOutlet weak var backview3: UIView!
     @IBOutlet weak var backview2: UIView!
     @IBOutlet weak var backview1: UIView!
@@ -35,6 +35,7 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
     @IBOutlet weak var K5: UITextField!
     @IBOutlet weak var K6: UITextField!
     @IBOutlet weak var SetDefaultKValue: UIButton!
+    @IBOutlet weak var UpdateWeight : UIButton!
     var starrecord : Bool = false;
     var selectPeripheral: CBPeripheral!
     var motion =  Array<Float>(repeating:0.0, count: 3)
@@ -45,7 +46,12 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
     var TURN_AROUND :Float = 10000
     var datastring :NSString!
     
-    
+    var kk1 : Float = 1
+    var kk2 : Float = 1
+    var kk3 : Float = 1
+    var kk4 : Float = 1
+    var kk5 : Float = 1
+    var kk6 : Float = 1
     
     //MARK: - View Properties
     var bluetoothManager    : NORBluetoothManager?
@@ -72,6 +78,27 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
         K4.text = "1"
         K5.text = "1"
         K6.text = "1"
+        kk1 = 1
+        kk2 = 1
+        kk3 = 1
+        kk4 = 1
+        kk5 = 1
+        kk6 = 1
+    }
+    
+    @IBAction func UpdateWeight(_ sender: UIButton){
+        let temp1: Float? = Float(K1.text!)
+        let temp2: Float? = Float(K2.text!)
+        let temp3: Float? = Float(K3.text!)
+        let temp4: Float? = Float(K4.text!)
+        let temp5: Float? = Float(K5.text!)
+        let temp6: Float? = Float(K6.text!)
+        kk1 = temp1!
+        kk2 = temp2!
+        kk3 = temp3!
+        kk4 = temp4!
+        kk5 = temp5!
+        kk6 = temp6!
     }
     
     @IBAction func connectionButtonTapped(_ sender: AnyObject) {
@@ -304,7 +331,12 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
   
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        K1.delegate = self
+        K2.delegate = self
+        K3.delegate = self
+        K4.delegate = self
+        K5.delegate = self
+        K6.delegate = self
         let revealViewController = self.revealViewController()
         if revealViewController != nil {
             self.view.addGestureRecognizer((revealViewController?.panGestureRecognizer())!)
@@ -373,6 +405,13 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
         self.stillTime3.text = "\(still3)"
 
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Hide the keyboard.
+        textField.resignFirstResponder()
+        return true
+    }
+    
     
     //MARK: - Segue methods
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
