@@ -34,6 +34,7 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
     @IBOutlet weak var K4: UITextField!
     @IBOutlet weak var K5: UITextField!
     @IBOutlet weak var K6: UITextField!
+    @IBOutlet weak var SetDefaultKValue: UIButton!
     var starrecord : Bool = false;
     var selectPeripheral: CBPeripheral!
     var motion =  Array<Float>(repeating:0.0, count: 3)
@@ -64,6 +65,15 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
     var webViewForSelectDate555: UIWebView!
     var webViewForSelectDate666: UIWebView!
     //MARK: - View Actions
+    @IBAction func setDefaultKValue(_ sender: UIButton) {
+        K1.text = "1"
+        K2.text = "1"
+        K3.text = "1"
+        K4.text = "1"
+        K5.text = "1"
+        K6.text = "1"
+    }
+    
     @IBAction func connectionButtonTapped(_ sender: AnyObject) {
         bluetoothManager?.cancelPeripheralConnection()
     }
