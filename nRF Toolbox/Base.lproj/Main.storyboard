@@ -577,6 +577,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3M-Ka-9Uv">
                                 <rect key="frame" x="778" y="718" width="103" height="30"/>
                                 <state key="normal" title="Update Weight"/>
+                                <connections>
+                                    <action selector="UpdateWeight:" destination="H5O-PI-o2R" eventType="touchUpInside" id="Et0-m9-pzU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
