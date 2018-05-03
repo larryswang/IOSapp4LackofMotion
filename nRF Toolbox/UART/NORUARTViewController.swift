@@ -424,13 +424,20 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
         let now = Date()
         let timeInterval:TimeInterval = now.timeIntervalSince1970
         let timeStamp = timeInterval * 1000
+        var jsstr1  = (float[0] as NSString).floatValue
+        jsstr1 = jsstr1 + kk1
+        var jsstr2 = (float[1] as NSString).floatValue
+        jsstr2 = jsstr2 + kk2
+        var jsstr3  = (float[2] as NSString).floatValue
+        jsstr3 = jsstr3 + kk3
+        var jsstr4  = (float[3] as NSString).floatValue
+        jsstr4 = jsstr4 + kk4
+        var jsstr5 = (float[4] as NSString).floatValue
+        jsstr5 = jsstr5 + kk5
+        var jsstr6  = (float[5] as NSString).floatValue
+        jsstr6 = jsstr6 + kk6
+        
         let jsStr111:NSMutableString = ""
-        let jsstr1  = (float[0] as NSString).intValue
-        let jsstr2 = (float[1] as NSString).intValue
-        let jsstr3  = (float[2] as NSString).intValue
-        let jsstr4  = (float[3] as NSString).intValue
-        let jsstr5 = (float[4] as NSString).intValue
-        let jsstr6  = (float[5] as NSString).intValue
         jsStr111.append("updateData(\(timeStamp),\(jsstr1))")
         print(jsStr111)
         let jsStr222:NSMutableString = ""
