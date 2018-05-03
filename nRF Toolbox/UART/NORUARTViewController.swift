@@ -78,27 +78,27 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
         K4.text = "1"
         K5.text = "1"
         K6.text = "1"
-        kk1 = 1
-        kk2 = 1
-        kk3 = 1
-        kk4 = 1
-        kk5 = 1
-        kk6 = 1
+        self.kk1 = 1
+        self.kk2 = 1
+        self.kk3 = 1
+        self.kk4 = 1
+        self.kk5 = 1
+        self.kk6 = 1
     }
     
     @IBAction func UpdateWeight(_ sender: UIButton){
-        let temp1: Float? = Float(K1.text!)
-        let temp2: Float? = Float(K2.text!)
-        let temp3: Float? = Float(K3.text!)
-        let temp4: Float? = Float(K4.text!)
-        let temp5: Float? = Float(K5.text!)
-        let temp6: Float? = Float(K6.text!)
-        kk1 = temp1!
-        kk2 = temp2!
-        kk3 = temp3!
-        kk4 = temp4!
-        kk5 = temp5!
-        kk6 = temp6!
+        let temp1 = (K1.text! as NSString).floatValue
+        let temp2 = (K2.text! as NSString).floatValue
+        let temp3 = (K3.text! as NSString).floatValue
+        let temp4 = (K4.text! as NSString).floatValue
+        let temp5 = (K5.text! as NSString).floatValue
+        let temp6 = (K6.text! as NSString).floatValue
+        self.kk1 = temp1
+        self.kk2 = temp2
+        self.kk3 = temp3
+        self.kk4 = temp4
+        self.kk5 = temp5
+        self.kk6 = temp6
     }
     
     @IBAction func connectionButtonTapped(_ sender: AnyObject) {
