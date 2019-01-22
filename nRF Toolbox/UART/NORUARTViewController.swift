@@ -425,17 +425,17 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
         let timeInterval:TimeInterval = now.timeIntervalSince1970
         let timeStamp = timeInterval * 1000
         var jsstr1  = (float[0] as NSString).floatValue
-        jsstr1 = jsstr1 + kk1
+        jsstr1 = jsstr1 * kk1
         var jsstr2 = (float[1] as NSString).floatValue
-        jsstr2 = jsstr2 + kk2
+        jsstr2 = jsstr2 * kk2
         var jsstr3  = (float[2] as NSString).floatValue
-        jsstr3 = jsstr3 + kk3
+        jsstr3 = jsstr3 * kk3
         var jsstr4  = (float[3] as NSString).floatValue
-        jsstr4 = jsstr4 + kk4
+        jsstr4 = jsstr4 * kk4
         var jsstr5 = (float[4] as NSString).floatValue
-        jsstr5 = jsstr5 + kk5
+        jsstr5 = jsstr5 * kk5
         var jsstr6  = (float[5] as NSString).floatValue
-        jsstr6 = jsstr6 + kk6
+        jsstr6 = jsstr6 * kk6
         
         let jsStr111:NSMutableString = ""
         jsStr111.append("updateData(\(timeStamp),\(jsstr1))")
@@ -505,27 +505,27 @@ class NORUARTViewController: UIViewController, NORBluetoothManagerDelegate, NORS
             self.stillTime2.text = "\(still2)"
             self.stillTime3.text = "\(still3)"
             var tt1 = (float[0] as NSString).floatValue
-            tt1 = tt1 + self.kk1
+            tt1 = tt1 * self.kk1
             self.sensor1.text = "\(tt1)"
             
             var tt2 = (float[1] as NSString).floatValue
-            tt2 = tt2 + self.kk2
+            tt2 = tt2 * self.kk2
             self.sensor2.text = "\(tt2)"
             
             var tt3 = (float[2] as NSString).floatValue
-            tt3 = tt3 + self.kk3
+            tt3 = tt3 * self.kk3
             self.sensor3.text = "\(tt3)"
             
             var tt4 = (float[3] as NSString).floatValue
-            tt4 = tt4 + self.kk4
+            tt4 = tt4 * self.kk4
             self.sensor4.text = "\(tt4)"
             
             var tt5 = (float[4] as NSString).floatValue
-            tt5 = tt5 + self.kk5
+            tt5 = tt5 * self.kk5
             self.sensor5.text = "\(tt5)"
             
             var tt6 = (float[5] as NSString).floatValue
-            tt6 = tt6 + self.kk6
+            tt6 = tt6 * self.kk6
             self.sensor6.text = "\(tt6)"
             
 
